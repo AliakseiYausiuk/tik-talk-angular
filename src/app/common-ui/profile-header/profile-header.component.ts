@@ -1,5 +1,5 @@
-import { Component, input } from '@angular/core';
-import { Profile } from '../../data/interfaces/profile.interface';
+import { Profile } from './../../data/interfaces/profile.interface';
+import { Component, Input, input } from '@angular/core';
 import { ImgUrlPipe } from '../../helpers/pipes/img-url.pipe';
 
 @Component({
@@ -10,6 +10,7 @@ import { ImgUrlPipe } from '../../helpers/pipes/img-url.pipe';
   styleUrl: './profile-header.component.scss',
 })
 export class ProfileHeaderComponent {
-  profile = input<Profile>();
-  // @Input() profile!: Profile;
+  // profile = input<Profile | undefined>();
+
+  @Input() profile!: Profile;
 }
