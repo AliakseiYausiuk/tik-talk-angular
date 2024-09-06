@@ -22,8 +22,8 @@ export class LoginPageComponent {
   isPasswordVisible = signal<boolean>(false);
 
   form = new FormGroup({
-    username: new FormControl(null, Validators.required),
-    password: new FormControl(null, Validators.required),
+    username: new FormControl<string | null>(null, Validators.required),
+    password: new FormControl<string | null>(null, Validators.required),
   });
 
   onSubmit() {
