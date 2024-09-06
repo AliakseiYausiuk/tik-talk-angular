@@ -14,7 +14,11 @@ export class ProfileService {
   me = signal<Profile | null>(null);
 
   getAccount(id: string) {
-    return this.http.get<Profile[]>(`${this.baseApiUrl}account/${id}`);
+    return this.http.get<Profile>(`${this.baseApiUrl}account/${id}`);
+  }
+
+  getTestAccounts() {
+    return this.http.get<Profile[]>(`${this.baseApiUrl}account/test_accounts`);
   }
 
   getMe() {
