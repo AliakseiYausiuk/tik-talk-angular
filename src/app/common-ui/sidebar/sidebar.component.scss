@@ -1,6 +1,8 @@
 :host {
   display: block;
   padding: 20px 12px;
+  position: relative;
+  background: var(--dark-color);
 }
 
 .main-menu-list {
@@ -9,14 +11,19 @@
   list-style: none;
 }
 
+.main-menu-list > li:last-child {
+  margin-bottom: 20px;
+}
+
 .menu-item {
-  padding: 16px 12px;
+  padding: 16px 16px;
   cursor: pointer;
   border: none;
   background: none;
   color: var(--light-color);
   display: grid;
   grid-template-columns: 16px 1fr max-content;
+  align-items: center;
   grid-gap: 12px;
   font-weight: 700;
   font-size: 14px;
@@ -36,15 +43,26 @@
   }
 }
 
-.sidebar-footer {
+.sidebar__footer {
+  position: absolute;
+  bottom: 20px;
+  width: calc(100% - 20px);
   background: var(--dark-hover-color);
   border-radius: 2px;
   padding: 4px 16px;
   display: grid;
   grid-template-columns: 32px 1fr 16px;
+  grid-gap: 12px;
+  align-items: center;
 }
 
-.menu-item svg {
+.sidebar__footer-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.menu-item > svg {
   width: 16px;
   height: 16px;
 }
@@ -63,4 +81,14 @@
 .to-subscribers-icon {
   width: 18px;
   height: 18px;
+}
+
+.username-text {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.settings-btn svg {
+  width: 14px;
+  height: 14px;
 }
