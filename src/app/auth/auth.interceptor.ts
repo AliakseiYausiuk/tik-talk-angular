@@ -13,7 +13,7 @@ export const authTokenInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
   const token = authService.token;
 
-  if (token) return next(req);
+  if (!token) return next(req);
 
   if (isRefreshing) {
     return refreshAndProceed(authService, req, next);
