@@ -6,7 +6,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { ProfileService } from '../../data/services/profile.service';
 import { firstValueFrom } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
-import { ImgUrlPipe } from "../../helpers/pipes/img-url.pipe";
+import { ImgUrlPipe } from '../../helpers/pipes/img-url.pipe';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,8 +18,8 @@ import { ImgUrlPipe } from "../../helpers/pipes/img-url.pipe";
     RouterLink,
     RouterOutlet,
     AsyncPipe,
-    ImgUrlPipe
-],
+    ImgUrlPipe,
+  ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })
@@ -38,12 +38,12 @@ export class SidebarComponent {
     },
     {
       label: 'Чаты',
-      icon: 'icon-chat',
+      icon: 'chat',
       link: 'chats',
     },
     {
       label: 'Поиск',
-      icon: 'icon-search',
+      icon: 'search',
       link: 'search',
     },
   ];
