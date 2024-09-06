@@ -1,7 +1,7 @@
-@if (profile(); as profile) { @if (profile.avatarUrl) {
+@if (profile) { @if (profile.avatarUrl) {
 <img [src]="profile.avatarUrl | imgUrl" alt="icon" />
 } @else {
-<img src="/public/assets/images/people/people1.png" alt="icon" />
+<img src="/assets/images/people/people1.png" alt="icon" />
 }
 
 <div class="userName-and-name">
