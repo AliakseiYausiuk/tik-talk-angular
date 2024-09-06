@@ -18,9 +18,11 @@
 }
 
 body {
+  font-family: "JetBrains Mono";
   background-color: var(--dark-color);
   color: var(--light-color);
-  background-image: url("/assets/images/Img-Bg-small_1440x900.png");
+  background-image: url(/assets/images/Img-Bg-big_1920.png);
+  height: 100dvh;
 }
 
 .skill-tag {
@@ -108,6 +110,7 @@ body {
   font-size: 14px;
   line-height: 21px;
   color: var(--light-color);
+  font-family: "JetBrains Mono";
 }
 
 .regular {
