@@ -10,7 +10,5 @@ import { ImgUrlPipe } from '../../helpers/pipes/img-url.pipe';
   styleUrl: './profile-header.component.scss',
 })
 export class ProfileHeaderComponent {
-  // profile = input<Profile | undefined>();
-
   @Input() profile!: Profile;
 }
