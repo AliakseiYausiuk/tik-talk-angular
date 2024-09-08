@@ -1,0 +1,37 @@
+<app-profile-header></app-profile-header>
+
+<form class="profile-form__wrapper" [formGroup]="form">
+  <div class="profile-form">
+    <div class="two-colums">
+      <label class="tt-form-label">
+        <span class="tt-form-label__text">Имя</span>
+        <input type="text" class="tt-form-input" formControlName="firstName" />
+      </label>
+
+      <label class="tt-form-label">
+        <span class="tt-form-label__text">Фамилия</span>
+        <input type="text" class="tt-form-input" formControlName="lastName" />
+      </label>
+    </div>
+
+    <label class="tt-form-label">
+      <span class="tt-form-label__text">О себе</span>
+      <textarea
+        class="tt-form-input tt-textarea"
+        formControlName="description"
+        rows="4"
+      ></textarea>
+    </label>
+
+    <label class="tt-form-label">
+      <span class="tt-form-label__text">Навыки</span>
+      <input type="text" class="tt-form-input" formControlName="userName" />
+    </label>
+  </div>
+
+  <div>
+    <div>
+      <button class="btn" (click)="onSave()">Сохранить</button>
+    </div>
+  </div>
+</form>
