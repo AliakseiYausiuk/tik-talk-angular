@@ -1,18 +1,22 @@
-import { Component, effect, inject } from '@angular/core';
+import { Component, effect, inject, ViewChild } from '@angular/core';
 import { ProfileHeaderComponent } from '../../common-ui/profile-header/profile-header.component';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ProfileService } from '../../data/services/profile.service';
+import { firstValueFrom } from 'rxjs';
+import { AvatarUploadComponent } from "./avatar-upload/avatar-upload.component";
 
 @Component({
   selector: 'app-settings-page',
   standalone: true,
-  imports: [ProfileHeaderComponent, ReactiveFormsModule],
+  imports: [ProfileHeaderComponent, ReactiveFormsModule, AvatarUploadComponent],
   templateUrl: './settings-page.component.html',
   styleUrl: './settings-page.component.scss',
 })
 export class SettingsPageComponent {
   fb = inject(FormBuilder);
   profileService = inject(ProfileService);
+
+  @ViewChild(AvatarUploadComponent) avatarUpload!: AvatarUploadComponent
 
   form = this.fb.group({
     firstName: ['', Validators.required],
@@ -24,8 +28,12 @@ export class SettingsPageComponent {
 
   constructor() {
     effect(() => {
-      //ts-ignore
-      // this.form.patchValue(this.profileService.me());
+      //@ts-ignore
+      this.form.patchValue({
+        ...this.profileService.me(),
+        //@ts-ignore
+        stack: this.mergeStack(this.profileService.me()?.stack),
+      });
     });
   }
 
@@ -34,5 +42,34 @@ export class SettingsPageComponent {
     this.form.updateValueAndValidity();
 
     if (this.form.invalid) return;
+
+    if (this.avatarUpload.avatar) {
+      firstValueFrom(this.profileService.uploadAvatar(this.avatarUpload.avatar))
+    }
+
+    //@ts-ignore
+    firstValueFrom(this.profileService.patchProfile({
+      ...this.form.value,
+      stack: this.splitStack(this.form.value.stack)
+    }));
+    // Какой-то глюк притера после форматирования
+    // firstValueFrom(this.profileService.patchProfile({
+    //   ...this.form.value,
+    //   stack: this.splitStack(this.form.value.stack)
+    // }));
+  }
+
+  splitStack(stack: string | null | string[] | undefined) {
+    if (!stack) return [];
+    if (Array.isArray(stack)) return stack;
+
+    return stack.split(',');
+  }
+
+  mergeStack(stack: string | null | string[] | undefined) {
+    if (!stack) return '';
+    if (Array.isArray(stack)) return stack.join(',');
+
+    return stack;
   }
 }
