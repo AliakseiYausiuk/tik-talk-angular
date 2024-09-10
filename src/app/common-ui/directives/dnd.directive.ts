@@ -36,6 +36,6 @@ export class DndDirective {
     event.stopPropagation();
 
     this.fileover = false;
-    this, this.fileDropped.emit(event.dataTransfer?.files[0]);
+    this.fileDropped.emit(event.dataTransfer?.files[0]);
   }
 }
