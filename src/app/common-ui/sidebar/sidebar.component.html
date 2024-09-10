@@ -32,11 +32,12 @@
 
 <footer class="sidebar__footer">
   @if (me(); as me) { @if (me.avatarUrl) {
-  <img [src]="me.avatarUrl | imgUrl" alt="icon" />
+  <img [src]="me.avatarUrl | imgUrl" class="sidebar__footer-img" width="32" height="32" alt="icon" />
   } @else {
   <img
     src="/assets/svg/avatar-placeholder.svg"
     class="sidebar__footer-img"
+    width="32" height="32"
     alt="icon"
   />
   }
