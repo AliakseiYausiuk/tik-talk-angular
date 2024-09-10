@@ -13,6 +13,10 @@ export const routes: Routes = [
     children: [
       {
         path: '',
+        redirectTo: 'profile/me',
+        pathMatch: 'full'
+      },{
+        path: 'search',
         component: SearchPageComponent,
       },
       {
