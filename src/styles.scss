@@ -23,6 +23,7 @@ body {
   background-color: var(--dark-color);
   color: var(--light-color);
   background-image: url(/assets/images/Img-Bg-big_1920.png);
+  background-size: cover;
   height: 100dvh;
 }
 
@@ -49,6 +50,21 @@ body {
   cursor: pointer;
   border-radius: 4px;
   border: 1px solid var(--dark-color);
+}
+
+.btn-icon {
+  width: 44px;
+  height: 44px;
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+  border-radius: 4px;
+  border: 1px solid var(--dark-color);
+  cursor: pointer;
+}
+
+.svg16 {
+  width: 16px;
+  height: 16px;
 }
 
 .btn-shadow {
