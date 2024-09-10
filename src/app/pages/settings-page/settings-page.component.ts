@@ -1,9 +1,9 @@
-import { Component, effect, inject, ViewChild } from '@angular/core';
-import { ProfileHeaderComponent } from '../../common-ui/profile-header/profile-header.component';
-import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { ProfileService } from '../../data/services/profile.service';
-import { firstValueFrom } from 'rxjs';
-import { AvatarUploadComponent } from "./avatar-upload/avatar-upload.component";
+import {Component, effect, inject, ViewChild} from '@angular/core';
+import {ProfileHeaderComponent} from '../../common-ui/profile-header/profile-header.component';
+import {FormBuilder, Validators, ReactiveFormsModule} from '@angular/forms';
+import {ProfileService} from '../../data/services/profile.service';
+import {firstValueFrom} from 'rxjs';
+import {AvatarUploadComponent} from "./avatar-upload/avatar-upload.component";
 
 @Component({
   selector: 'app-settings-page',
@@ -16,12 +16,12 @@ export class SettingsPageComponent {
   fb = inject(FormBuilder);
   profileService = inject(ProfileService);
 
-  @ViewChild(AvatarUploadComponent) avatarUpload!: AvatarUploadComponent
+  @ViewChild(AvatarUploadComponent) avatarUploader!: AvatarUploadComponent
 
   form = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    userName: [{ value: '', disabled: true }, Validators.required],
+    userName: [{value: '', disabled: true}, Validators.required],
     description: [''],
     stack: [''],
   });
@@ -37,14 +37,15 @@ export class SettingsPageComponent {
     });
   }
 
+
   onSave() {
     this.form.markAllAsTouched();
     this.form.updateValueAndValidity();
 
     if (this.form.invalid) return;
 
-    if (this.avatarUpload.avatar) {
-      firstValueFrom(this.profileService.uploadAvatar(this.avatarUpload.avatar))
+    if (this.avatarUploader.avatar) {
+      firstValueFrom(this.profileService.uploadAvatar(this.avatarUploader.avatar))
     }
 
     //@ts-ignore
@@ -52,14 +53,9 @@ export class SettingsPageComponent {
       ...this.form.value,
       stack: this.splitStack(this.form.value.stack)
     }));
-    // Какой-то глюк притера после форматирования
-    // firstValueFrom(this.profileService.patchProfile({
-    //   ...this.form.value,
-    //   stack: this.splitStack(this.form.value.stack)
-    // }));
   }
 
-  splitStack(stack: string | null | string[] | undefined) {
+  splitStack(stack: string | null | string[] | undefined): string[] {
     if (!stack) return [];
     if (Array.isArray(stack)) return stack;
 
