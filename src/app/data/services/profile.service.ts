@@ -42,7 +42,7 @@ export class ProfileService {
     fd.append('image', file);
 
     return this.http.post<Profile>(
-      `${this.baseApiUrl}account/upload_image/`,
+      `${this.baseApiUrl}account/upload_image`,
       fd
     );
   }
