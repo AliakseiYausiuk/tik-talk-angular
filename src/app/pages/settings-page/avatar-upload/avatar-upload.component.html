@@ -1,4 +1,4 @@
-<img [src]="preview()" class="avatar" alt="Avatar" />
+<img [src]="preview()" class="avatar" alt="Avatar"/>
 
 <div
   dnd
@@ -12,11 +12,11 @@
     <span class="medium-text">Перетащите изображение или Загрузите</span>
   </div>
   <input
-    (change)="fileBrowserHandler($event)"
-    
     tabindex="-1"
     class="avatar-input"
     type="file"
+    [(ngModel)]="avatar"
     #fileDrop
+    (change)="fileBrowserHandler($event)"
   />
 </div>
