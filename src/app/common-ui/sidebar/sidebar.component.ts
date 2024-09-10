@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import { SvgComponent } from '../svg/svg.component';
 import { NgFor } from '@angular/common';
 import { SubscriberCardComponent } from './subscriber-card/subscriber-card.component';
@@ -24,7 +24,7 @@ import { ImgUrlPipe } from '../../helpers/pipes/img-url.pipe';
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
   profileService = inject(ProfileService);
 
   subscribers$ = this.profileService.getSubscribersShortList();
