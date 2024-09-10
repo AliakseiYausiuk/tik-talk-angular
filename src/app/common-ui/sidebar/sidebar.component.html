@@ -9,7 +9,11 @@
 <nav>
   <ul class="main-menu-list">
     <li *ngFor="let menuItem of menuItems">
-      <a class="menu-item" [routerLink]="[menuItem.link]">
+      <a
+        class="menu-item"
+        [routerLink]="[menuItem.link]"
+        routerLinkActive="active"
+      >
         <svg [icon]="menuItem.icon"></svg>
         <span>{{ menuItem.label }}</span>
       </a>
@@ -20,7 +24,7 @@
 <p class="medium-text mb20 ml16">Подписчики</p>
 
 @for (profile of subscribers$ | async; track profile.id) {
-<app-subscriber-card [profile]="profile"></app-subscriber-card>
+  <app-subscriber-card [profile]="profile"></app-subscriber-card>
 }
 
 <div class="to-subscribers ml16">
@@ -31,20 +35,21 @@
 </div>
 
 <footer class="sidebar__footer">
-  @if (me(); as me) { @if (me.avatarUrl) {
-  <img [src]="me.avatarUrl | imgUrl" class="sidebar__footer-img" width="32" height="32" alt="icon" />
-  } @else {
-  <img
-    src="/assets/svg/avatar-placeholder.svg"
-    class="sidebar__footer-img"
-    width="32" height="32"
-    alt="icon"
-  />
-  }
+  @if (me(); as me) {
+    @if (me.avatarUrl) {
+      <img [src]="me.avatarUrl | imgUrl" class="sidebar__footer-img" width="32" height="32" alt="icon"/>
+    } @else {
+      <img
+        src="/assets/svg/avatar-placeholder.svg"
+        class="sidebar__footer-img"
+        width="32" height="32"
+        alt="icon"
+      />
+    }
 
-  <div class="medium-text username-text">{{ me.username }}</div>
-  <a [routerLink]="['/settings']" class="settings-btn">
-    <svg icon="settings" class="sidebar__footer-icon"></svg>
-  </a>
+    <div class="medium-text username-text">{{ me.username }}</div>
+    <a [routerLink]="['/settings']" class="settings-btn">
+      <svg icon="settings" class="sidebar__footer-icon"></svg>
+    </a>
   }
 </footer>
