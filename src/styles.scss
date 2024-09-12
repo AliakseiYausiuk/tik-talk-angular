@@ -19,12 +19,13 @@
 }
 
 body {
+  height: 100dvh;
   font-family: "JetBrains Mono";
   background-color: var(--dark-color);
   color: var(--light-color);
   background-image: url(/assets/images/Img-Bg-big_1920.png);
   background-size: cover;
-  height: 100dvh;
+  background-repeat: no-repeat;
 }
 
 .skill-tag {
@@ -108,6 +109,20 @@ body {
   font-weight: 400;
 }
 
+.medium-text {
+  font-family: "JetBrains Mono", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.regular {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
 .tt-control-label {
   display: block;
   font-size: 12px;
@@ -165,9 +180,3 @@ body {
   resize: none;
 }
 
-.regular {
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-}
