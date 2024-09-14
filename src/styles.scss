@@ -3,11 +3,15 @@
 
 :root {
   --dark-color: #000;
+  --dark-active-color: #161616;
   --light-color: #fff;
   --primary-color: #ae7aff;
   --gray-color: #5f646d;
   --dark-hover-color: #161616;
   --light-transparent-color: rgba(255, 255, 255, 0.75);
+  --message-color: #404040;
+
+  --light-border: 1px solid var(--light-color)
 }
 
 *,
