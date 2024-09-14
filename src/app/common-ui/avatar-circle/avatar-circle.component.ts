@@ -11,5 +11,5 @@ import {ImgUrlPipe} from "../../helpers/pipes/img-url.pipe";
   styleUrl: './avatar-circle.component.scss'
 })
 export class AvatarCircleComponent {
-  @Input() avatarUrl!: string | null;
+  @Input() avatarUrl!: string | null | undefined;
 }
