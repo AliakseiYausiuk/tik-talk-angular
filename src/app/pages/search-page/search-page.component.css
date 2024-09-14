@@ -1,0 +1,11 @@
+:host {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.profile-card__wrapper {
+  display: grid;
+  grid-gap: 8px;
+}
+
+/*# sourceMappingURL=search-page.component.css.map */
