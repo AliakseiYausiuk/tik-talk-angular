@@ -1,6 +1,0 @@
-@if (activeChat$ | async; as chat) {
-  <app-chat-workspace-header [profile]="chat.companion"></app-chat-workspace-header>
-  <app-chat-workspace-messages-wrapper
-    [chat]="chat"
-  ></app-chat-workspace-messages-wrapper>
-}
