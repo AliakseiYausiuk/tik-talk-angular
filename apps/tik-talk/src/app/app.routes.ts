@@ -1,11 +1,9 @@
 import { Routes } from '@angular/router';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { SearchPageComponent } from './pages/search-page/search-page.component';
-import { LayoutComponent } from './common-ui/layout/layout.component';
-import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
-import { chatsRoutes } from './pages/chat-page/chatsRoutes';
-import {canActivateAuth} from "@tt/auth";
-import {ProfilePageComponent} from "@tt/profile";
+import {canActivateAuth, LoginPageComponent} from "@tt/auth";
+import {ProfilePageComponent, SearchPageComponent, SettingsPageComponent} from "@tt/profile";
+import {chatsRoutes} from "../../../../libs/chats/src/lib/feature-chats-workspace/chat-page/chatsRoutes";
+import {LayoutComponent} from "@tt/layout";
+
 
 
 export const routes: Routes = [

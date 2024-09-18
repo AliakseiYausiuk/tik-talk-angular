@@ -3,5 +3,5 @@ import { SvgComponent } from "./svg/svg.component";
 
 export {
   AvatarCircleComponent,
-  SvgComponent
+  SvgComponent,
 }
