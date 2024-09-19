@@ -1,5 +1,4 @@
-import {Profile} from "@tt/interfaces/profile";
-
+import {Profile} from '@tt/interfaces/profile';
 
 export interface PostCreateDto {
   title: string;
@@ -22,10 +21,10 @@ export interface PostComment {
   id: number;
   text: string;
   author: {
-    id: number;
+    id: 0;
     username: string;
     avatarUrl: string;
-    subscribersAmount: number;
+    subscribersAmount: 0;
   };
   postId: number;
   commentId: number;
@@ -37,5 +36,4 @@ export interface CommentCreateDto {
   text: string;
   authorId: number;
   postId: number;
-  // commentId: number
 }

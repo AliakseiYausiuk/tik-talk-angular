@@ -1,7 +1,7 @@
-import { Post, PostComment } from "./interfaces/post.interface";
 import { PostService } from "./services/post.service";
+import { Post, PostComment } from "./interfaces/post.interface";
 
-export  {
+export {
   Post,
   PostService,
   PostComment

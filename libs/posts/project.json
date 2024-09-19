@@ -2,7 +2,7 @@
   "name": "posts",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/posts/src",
-  "prefix": "lib",
+  "prefix": "tt",
   "projectType": "library",
   "tags": [],
   "targets": {

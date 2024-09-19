@@ -12,7 +12,7 @@ import {
   tap,
   throwError,
 } from 'rxjs';
-import {AuthService} from "@tt/auth";
+import { AuthService } from './auth.service';
 
 let isRefreshing$ = new BehaviorSubject<boolean>(false);
 
@@ -31,26 +31,25 @@ export const authTokenInterceptor: HttpInterceptorFn = (req, next) => {
       if (error.status === 403) {
         return refreshAndProceed(authService, req, next);
       }
+
       return throwError(error);
-    }),
+    })
   );
 };
 
 const refreshAndProceed = (
   authService: AuthService,
   req: HttpRequest<any>,
-  next: HttpHandlerFn,
+  next: HttpHandlerFn
 ) => {
   if (!isRefreshing$.value) {
     isRefreshing$.next(true);
     return authService.refreshAuthToken().pipe(
       switchMap((res) => {
         return next(addToken(req, res.access_token)).pipe(
-          tap(() => {
-            isRefreshing$.next(false);
-          }),
+          tap(() => isRefreshing$.next(false))
         );
-      }),
+      })
     );
   }
 
@@ -61,11 +60,11 @@ const refreshAndProceed = (
     filter((isRefreshing) => !isRefreshing),
     switchMap((res) => {
       return next(addToken(req, authService.token!));
-    }),
+    })
   );
 };
 
-const addToken = (req: HttpRequest<any>, token: string | null) => {
+const addToken = (req: HttpRequest<any>, token: string) => {
   return req.clone({
     setHeaders: {
       Authorization: `Bearer ${token}`,

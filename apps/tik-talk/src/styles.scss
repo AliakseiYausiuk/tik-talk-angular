@@ -1,10 +1,10 @@
-@import './fonts';
-@import './margins.scss';
+@import 'fonts';
+@import 'margins';
 
 :root {
-  --dark-color: #000;
+  --dark-color: #000000;
   --dark-active-color: #161616;
-  --light-color: #fff;
+  --light-color: #ffffff;
   --primary-color: #ae7aff;
   --gray-color: #5f646d;
   --dark-hover-color: #161616;
@@ -15,8 +15,8 @@
 }
 
 *,
-*::before,
-*::after {
+*:before,
+*:after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -24,10 +24,10 @@
 
 body {
   height: 100dvh;
-  font-family: 'JetBrains Mono';
-  background-color: var(--dark-color);
+  font-family: 'JetBrains Mono', sans-serif;
+  background: var(--dark-color);
   color: var(--light-color);
-  background-image: url(/assets/images/Img-Bg-big_1920.png);
+  background-image: url(/assets/imgs/background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -45,14 +45,13 @@ body {
 
 .btn {
   width: 100%;
-  border: none;
-  background-color: var(--primary-color);
-  color: var(--dark-color);
   padding: 10px 20px;
   font-weight: 700;
   font-size: 14px;
   line-height: 24px;
   cursor: pointer;
+  background: var(--primary-color);
+  color: var(--dark-color);
   border-radius: 4px;
   border: 1px solid var(--dark-color);
 }
@@ -60,11 +59,11 @@ body {
 .btn-icon {
   width: 44px;
   height: 44px;
-  background-color: var(--primary-color);
+  cursor: pointer;
+  background: var(--primary-color);
   color: var(--dark-color);
   border-radius: 4px;
   border: 1px solid var(--dark-color);
-  cursor: pointer;
 }
 
 .svg16 {
@@ -75,7 +74,7 @@ body {
 .btn-shadow {
   position: relative;
 
-  &::before {
+  &:before {
     content: '';
     position: absolute;
     z-index: -1;
@@ -103,14 +102,13 @@ body {
 
 .h6 {
   font-size: 18px;
-  font-weight: 800;
   line-height: 24px;
+  font-weight: 800;
 }
 
 .subtitle {
   font-size: 14px;
   line-height: 20px;
-  font-weight: 400;
 }
 
 .medium-text {
@@ -128,25 +126,25 @@ body {
 }
 
 .tt-control-label {
-  display: block;
-  font-size: 12px;
   font-weight: 700;
+  font-size: 12px;
   line-height: 16px;
+  display: block;
 }
 
 .tt-input {
+  width: 100%;
   margin-top: 8px;
   display: block;
-  width: 100%;
-  border: 1px solid var(--light-color);
+  border: 1px solif var(--light-color);
   border-radius: 4px;
   padding: 12px 20px;
   background: var(--dark-color);
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
+  font-family: 'JetBrains Mono', sans-serif;
   color: var(--light-color);
-  font-family: 'JetBrains Mono';
 }
 
 .tt-form-label {
@@ -155,28 +153,28 @@ body {
   gap: 16px;
 }
 
-.tt-form-input {
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 21px;
-  border: none;
-  background: none;
-  border-bottom: 1px solid var(--light-color);
-  height: 33px;
-  color: var(--light-color);
-
-  &:focus-visible {
-    outline: 1px solid var(--primary-color);
-  }
-}
-
 .tt-form-label__text {
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: 16px;
   color: var(--light-transparent-color);
+}
+
+.tt-form-input {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  border: none;
+  background: none;
+  color: var(--light-color);
+  border-bottom: 1px solid var(--light-color);
+  height: 33px;
+
+  &:focus-visible {
+    outline: 1px solid var(--primary-color);
+  }
 }
 
 .tt-textarea {

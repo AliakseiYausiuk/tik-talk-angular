@@ -3,5 +3,5 @@ import { PostComponent } from "./post/post.component";
 
 export {
   PostComponent,
-  PostFeedComponent
+  PostFeedComponent,
 }

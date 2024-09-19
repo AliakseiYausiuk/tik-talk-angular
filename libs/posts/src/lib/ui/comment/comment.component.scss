@@ -1,6 +1,6 @@
 :host {
   display: grid;
-  grid-template-columns: 40px 1fr;
+  grid-template-columns: 32px 1fr;
   grid-gap: 16px;
 }
 
@@ -11,6 +11,10 @@
 
 .comment-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+}
+
+.comment-header {
+  color: var(--light-transparent-color);
 }

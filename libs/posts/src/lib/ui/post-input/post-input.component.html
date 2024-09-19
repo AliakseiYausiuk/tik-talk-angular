@@ -1,6 +1,6 @@
 <app-avatar-circle
   *ngIf="profile() as profile"
-  class="size40"
+  class="size32"
   [avatarUrl]="profile.avatarUrl"
 ></app-avatar-circle>
 
@@ -8,7 +8,6 @@
   [(ngModel)]="postText"
   class="hidden-textarea"
   (input)="onTextAreaInput($event)"
-  placeholder="Напишите что-нибудь..."
 ></textarea>
 
 <button class="btn-icon" (click)="onCreatePost()">

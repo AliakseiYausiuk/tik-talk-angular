@@ -7,13 +7,13 @@ import {
   Renderer2,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {AvatarCircleComponent, SvgComponent} from '@tt/common-ui';
+import {AvatarCircleComponent, SvgIconComponent} from '@tt/common-ui';
 import {ProfileService} from '@tt/profile';
 
 @Component({
   selector: 'app-message-input',
   standalone: true,
-  imports: [AvatarCircleComponent, NgIf, FormsModule, SvgComponent],
+  imports: [AvatarCircleComponent, NgIf, FormsModule, SvgIconComponent],
   templateUrl: './message-input.component.html',
   styleUrl: './message-input.component.scss',
 })

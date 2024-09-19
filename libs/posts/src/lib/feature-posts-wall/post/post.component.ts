@@ -1,9 +1,9 @@
-import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { Component, inject, input, OnInit, signal } from '@angular/core';
+import {AvatarCircleComponent, SvgIconComponent} from '@tt/common-ui';
 import { firstValueFrom } from 'rxjs';
-import {CommentComponent, PostInputComponent} from "../../ui";
-import {Post, PostComment, PostService} from "../../data";
-import {AvatarCircleComponent, SvgComponent} from "@tt/common-ui";
+import {Post, PostComment, PostService} from '../../data';
+import {CommentComponent, PostInputComponent} from '../../ui';
 
 @Component({
   selector: 'app-post',
@@ -11,7 +11,7 @@ import {AvatarCircleComponent, SvgComponent} from "@tt/common-ui";
   imports: [
     AvatarCircleComponent,
     DatePipe,
-    SvgComponent,
+    SvgIconComponent,
     PostInputComponent,
     CommentComponent,
   ],
@@ -20,17 +20,18 @@ import {AvatarCircleComponent, SvgComponent} from "@tt/common-ui";
 })
 export class PostComponent implements OnInit {
   post = input<Post>();
+
   comments = signal<PostComment[]>([]);
 
   postService = inject(PostService);
 
-  ngOnInit() {
+  async ngOnInit() {
     this.comments.set(this.post()!.comments);
   }
 
   async onCreated() {
     const comments = await firstValueFrom(
-      this.postService.getCommentsByPostId(this.post()!.id),
+      this.postService.getCommentsByPostId(this.post()!.id)
     );
     this.comments.set(comments);
   }

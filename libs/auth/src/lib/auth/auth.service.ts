@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { catchError, tap, throwError } from 'rxjs';
 import { TokenResponse } from './auth.interface';
-import { CookieService } from 'ngx-cookie-service';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 export class AuthService {
   http = inject(HttpClient);
   router = inject(Router);
-
   cookieService = inject(CookieService);
   baseApiUrl = 'https://icherniakov.ru/yt-course/auth/';
 
@@ -23,6 +22,7 @@ export class AuthService {
       this.token = this.cookieService.get('token');
       this.refreshToken = this.cookieService.get('refreshToken');
     }
+
     return !!this.token;
   }
 
@@ -34,7 +34,7 @@ export class AuthService {
 
     return this.http
       .post<TokenResponse>(`${this.baseApiUrl}token`, fd)
-      .pipe(tap((value) => this.saveTokens(value)));
+      .pipe(tap((val) => this.saveTokens(val)));
   }
 
   refreshAuthToken() {
@@ -43,11 +43,11 @@ export class AuthService {
         refresh_token: this.refreshToken,
       })
       .pipe(
-        tap((value) => this.saveTokens(value)),
+        tap((val) => this.saveTokens(val)),
         catchError((err) => {
           this.logout();
           return throwError(err);
-        }),
+        })
       );
   }
 

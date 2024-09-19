@@ -1,7 +1,7 @@
 import { AvatarCircleComponent } from "./avatar-circle/avatar-circle.component";
-import { SvgComponent } from "./svg/svg.component";
+import { SvgIconComponent } from "./svg-icon/svg-icon.component";
 
 export {
   AvatarCircleComponent,
-  SvgComponent,
+  SvgIconComponent,
 }

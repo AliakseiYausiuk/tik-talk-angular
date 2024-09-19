@@ -1,4 +1,4 @@
-import { GlobalStoreService } from "./services/global-store.service";
+import { GlobalStoreService } from "./service/global-store.service";
 import { Pageble } from "./interfaces/pageble.interface";
 
 export {
