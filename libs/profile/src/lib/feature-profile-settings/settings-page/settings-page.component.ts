@@ -1,9 +1,8 @@
 import { Component, effect, inject, ViewChild } from '@angular/core';
-import { ProfileHeaderComponent } from '../../ui/profile-header/profile-header.component';
-import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import {ProfileService} from '@tt/profile';
 import { firstValueFrom } from 'rxjs';
-import { AvatarUploadComponent } from '../../ui/avatar-upload/avatar-upload.component';
-import {ProfileService} from "@tt/profile";
+import {AvatarUploadComponent, ProfileHeaderComponent} from '../../ui';
 
 @Component({
   selector: 'app-settings-page',
@@ -21,7 +20,7 @@ export class SettingsPageComponent {
   form = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    userName: [{ value: '', disabled: true }, Validators.required],
+    username: [{ value: '', disabled: true }, Validators.required],
     description: [''],
     stack: [''],
   });
@@ -37,6 +36,8 @@ export class SettingsPageComponent {
     });
   }
 
+  ngAfterViewInit() {}
+
   onSave() {
     this.form.markAllAsTouched();
     this.form.updateValueAndValidity();
@@ -45,7 +46,7 @@ export class SettingsPageComponent {
 
     if (this.avatarUploader.avatar) {
       firstValueFrom(
-        this.profileService.uploadAvatar(this.avatarUploader.avatar),
+        this.profileService.uploadAvatar(this.avatarUploader.avatar)
       );
     }
 
@@ -54,7 +55,7 @@ export class SettingsPageComponent {
       this.profileService.patchProfile({
         ...this.form.value,
         stack: this.splitStack(this.form.value.stack),
-      }),
+      })
     );
   }
 

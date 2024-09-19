@@ -2,7 +2,7 @@
 
 <form class="profile-form__wrapper" [formGroup]="form">
   <div class="profile-form">
-    <div class="two-colums">
+    <div class="two-columns">
       <label class="tt-form-label">
         <span class="tt-form-label__text">Имя</span>
         <input type="text" class="tt-form-input" formControlName="firstName" />
@@ -15,10 +15,15 @@
     </div>
 
     <label class="tt-form-label">
+      <span class="tt-form-label__text">Telegram username</span>
+      <input type="text" class="tt-form-input" formControlName="username" />
+    </label>
+
+    <label class="tt-form-label">
       <span class="tt-form-label__text">О себе</span>
       <textarea
-        class="tt-form-input tt-textarea"
         formControlName="description"
+        class="tt-form-input tt-textarea"
         rows="4"
       ></textarea>
     </label>
@@ -28,8 +33,8 @@
       <app-avatar-upload></app-avatar-upload>
     </label>
 
-    <label class="tt-form-label mb16">
-      <span class="tt-form-label__text">Навыки</span>
+    <label class="tt-form-label">
+      <span class="tt-form-label__text">Навыки (стэк)</span>
       <input type="text" class="tt-form-input" formControlName="stack" />
     </label>
   </div>

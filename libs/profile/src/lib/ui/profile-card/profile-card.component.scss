@@ -6,6 +6,11 @@
   grid-gap: 32px;
 }
 
+.profile-card__description {
+  font-size: 14px;
+  font-weight: 500;
+}
+
 .avatar-name {
   display: grid;
   grid-template-columns: 70px 1fr;
@@ -13,8 +18,8 @@
 }
 
 .profile-card__avatar {
-  width: 71px;
-  height: 71px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   overflow: hidden;
 }

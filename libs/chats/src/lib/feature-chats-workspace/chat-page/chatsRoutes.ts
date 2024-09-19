@@ -1,5 +1,7 @@
 import { Route } from '@angular/router';
-import {ChatPageComponent, ChatWorkspaceComponent} from "@tt/chats";
+import {ChatPageComponent} from "./chat-page.component";
+import {ChatWorkspaceComponent} from "../chat-workspace/chat-workspace.component";
+
 
 
 export const chatsRoutes: Route[] = [

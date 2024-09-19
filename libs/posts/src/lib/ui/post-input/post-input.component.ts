@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
 import {PostService} from "../../data";
 import {AvatarCircleComponent, SvgComponent} from "@tt/common-ui";
-import {ProfileService} from "@tt/profile";
+import {GlobalStoreService} from "@tt/shared";
 
 
 
@@ -27,9 +27,10 @@ export class PostInputComponent {
   r2 = inject(Renderer2);
   postService = inject(PostService);
 
+
   isCommentInput = input<boolean>(false);
   postId = input<number>(0);
-  profile = inject(ProfileService).me;
+  profile = inject(GlobalStoreService).me;
 
   @Output() created = new EventEmitter();
 

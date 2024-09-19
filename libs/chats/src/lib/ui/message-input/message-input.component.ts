@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import {
   Component,
   EventEmitter,
@@ -5,21 +6,14 @@ import {
   Output,
   Renderer2,
 } from '@angular/core';
-import { NgIf } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {AvatarCircleComponent, SvgComponent} from "@tt/common-ui";
-import {ProfileService} from "@tt/profile";
+import { FormsModule } from '@angular/forms';
+import {AvatarCircleComponent, SvgComponent} from '@tt/common-ui';
+import {ProfileService} from '@tt/profile';
 
 @Component({
   selector: 'app-message-input',
   standalone: true,
-  imports: [
-    AvatarCircleComponent,
-    NgIf,
-    ReactiveFormsModule,
-    SvgComponent,
-    FormsModule,
-  ],
+  imports: [AvatarCircleComponent, NgIf, FormsModule, SvgComponent],
   templateUrl: './message-input.component.html',
   styleUrl: './message-input.component.scss',
 })

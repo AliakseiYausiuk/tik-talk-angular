@@ -1,6 +1,6 @@
-import { Component, Input, input } from '@angular/core';
-import {AvatarCircleComponent, ImgUrlPipe} from "@tt/common-ui";
-import {Profile} from "@tt/profile";
+import { Component, input } from '@angular/core';
+import {AvatarCircleComponent, ImgUrlPipe} from '@tt/common-ui';
+import {Profile} from '@tt/interfaces/profile';
 
 @Component({
   selector: 'app-profile-header',
@@ -10,5 +10,5 @@ import {Profile} from "@tt/profile";
   styleUrl: './profile-header.component.scss',
 })
 export class ProfileHeaderComponent {
-  @Input() profile!: Profile;
+  profile = input<Profile>();
 }
