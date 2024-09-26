@@ -3,14 +3,15 @@ import {canActivateAuth, LoginPageComponent} from '@tt/auth';
 import {chatsRoutes} from '@tt/chats';
 import {LayoutComponent} from '@tt/layout';
 import {
-  ProfileEffects,
-  profileFeature,
   ProfilePageComponent,
   SearchPageComponent,
   SettingsPageComponent
 } from '@tt/profile';
-import {provideState} from "@ngrx/store";
-import {provideEffects} from "@ngrx/effects";
+import {provideStates} from "@ngxs/store";
+import {ProfileState} from "../../../../libs/profile/src/lib/data/store/ngxs-state";
+import {
+  FormsExperimentalComponent
+} from "../../../../libs/experimental/src/lib/forms-experimental/forms-experimental.component";
 
 
 export const routes: Routes = [
@@ -25,8 +26,7 @@ export const routes: Routes = [
         path: 'search',
         component: SearchPageComponent,
         providers: [
-          provideState(profileFeature),
-          provideEffects(ProfileEffects)
+          provideStates([ProfileState])
         ]
       },
       {
@@ -37,5 +37,8 @@ export const routes: Routes = [
     canActivate: [canActivateAuth],
   },
   { path: 'login', component: LoginPageComponent },
+  {
+    path: 'experimental', component: FormsExperimentalComponent
+  }
 ];
 
