@@ -1,13 +1,13 @@
 import { Component, inject, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import {profileActions, ProfileService} from '@tt/profile';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import {profileActions, ProfileService} from '../../data';
 import {
   debounceTime,
   startWith,
   Subscription,
-  switchMap,
 } from 'rxjs';
-import {Store} from "@ngrx/store";
+import {Store} from "@ngxs/store";
+import {FilterEvents} from "../../data/store/ngxs-actions";
 
 @Component({
   selector: 'app-profile-filters',
@@ -36,7 +36,7 @@ export class ProfileFiltersComponent implements OnDestroy {
         debounceTime(300),
       )
       .subscribe(formValue => {
-        this.store.dispatch(profileActions.filterEvents({filters: formValue}))
+        this.store.dispatch(new FilterEvents(formValue));
       });
   }
 

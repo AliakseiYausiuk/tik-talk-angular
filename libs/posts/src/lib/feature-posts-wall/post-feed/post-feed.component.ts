@@ -8,7 +8,9 @@ import {
 import { firstValueFrom, fromEvent } from 'rxjs';
 import {PostService} from '../../data';
 import {PostInputComponent} from '../../ui';
+// import {PostComponent} from "@tt/posts";
 import { PostComponent } from '../post/post.component';
+
 
 @Component({
   selector: 'app-post-feed',
@@ -37,7 +39,7 @@ export class PostFeedComponent {
     this.resizeFeed();
 
     fromEvent(window, 'resize').subscribe(() => {
-      console.log(12313);
+      // console.log(12313);
     });
   }
 
