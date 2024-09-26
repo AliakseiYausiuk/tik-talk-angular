@@ -1,0 +1,91 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+  <h4 class="h4 mb16">Информация о доставке</h4>
+
+  <label class="tt-control-label mb16">
+    Тип получателя
+    <select class="tt-input" formControlName="type">
+      <option [value]="ReceiverType.PERSON">Физическое лицо</option>
+      <option [value]="ReceiverType.LEGAL">Юридическое лицо</option>
+    </select>
+  </label>
+
+  <label class="tt-control-label mb16">
+    Имя
+    <input
+      formControlName="name"
+      class="tt-input"
+      type="text"
+      placeholder="Введите имя"
+    />
+  </label>
+
+  @if (form.controls.type.value === ReceiverType.LEGAL) {
+    <label class="tt-control-label mb16">
+      ИНН
+      <input
+        formControlName="inn"
+        class="tt-input"
+        type="text"
+        placeholder="Введите ИНН"
+      />
+    </label>
+  } @else {
+    <label class="tt-control-label mb16">
+      Фамилия
+      <input
+        formControlName="lastName"
+        class="tt-input"
+        type="text"
+        placeholder="Введите фамилию"
+      />
+    </label>
+  }
+
+  <div>
+    <h4 class="h6 mb16">Адрес доставки</h4>
+
+    <div class="form-grid" formGroupName="address">
+      <label class="tt-control-label mb16">
+        Город
+        <input
+          formControlName="city"
+          class="tt-input"
+          type="text"
+          placeholder="Город"
+        />
+      </label>
+
+      <label class="tt-control-label mb16">
+        Улица
+        <input
+          formControlName="street"
+          class="tt-input"
+          type="text"
+          placeholder="Улица"
+        />
+      </label>
+
+      <label class="tt-control-label mb16">
+        Дом
+        <input
+          formControlName="building"
+          class="tt-input"
+          type="text"
+          placeholder="Дом"
+        />
+      </label>
+
+      <label class="tt-control-label mb16">
+        Квартира
+        <input
+          formControlName="apartment"
+          class="tt-input"
+          type="text"
+          placeholder="Квартира"
+        />
+      </label>
+    </div>
+  </div>
+
+  <button class="btn btn-shadow mt20" type="submit">Подтвердить</button>
+</form>
